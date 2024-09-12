@@ -4,16 +4,10 @@
 }
 
 .main {
-    /* background-color: #031927; */
     color: antiquewhite;
     font-family: 'kanit', sans-serif;
-    background: linear-gradient(to right, #111f42, #0f172a); /* Transition from one color to another */; /* A circular gradient */
+    background: linear-gradient(to right, #111f42, #0f172a);
 
-}
-
-#test {
-    font-family: 'kanit';
-    color: red;
 }
 
 #myName {
