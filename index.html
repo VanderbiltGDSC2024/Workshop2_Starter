@@ -34,31 +34,11 @@
         </div>
     </div>
 
-    <script>
-        const projects = [
-            {
-                title: "Fullstack Application",
-                summary: "Python, Angular, AWS",
-                description: "Designed and implemented a fullstack application using Python for the backend, Angular for the frontend, and AWS for deployment. Features included user authentication, real-time data processing, and responsive design.",
-                imageSrc: "./assets/angular.jpg",
-                codeSrc: "https://github.com/DanielPHenricks/F1Grid"
-            },
-            {
-                title: "Data Structures Visualizer",
-                summary: "JavaScript, D3.js",
-                description: "Created an interactive web application to visualize various data structures such as linked lists, trees, and graphs. Implemented algorithms for insertion, deletion, and traversal with animated visualizations.",
-                imageSrc: "./assets/data.jpg",
-                codeSrc: "https://github.com/DanielPHenricks/"
-            },
-            {
-                title: "Machine Learning Model",
-                summary: "Python, TensorFlow, Scikit-learn",
-                description: "Developed a machine learning model for image classification using convolutional neural networks. Achieved 95% accuracy on a custom dataset and deployed the model as a web service.",
-                imageSrc: "./assets/ml.jpg",
-                codeSrc: "https://github.com/DanielPHenricks/"
-           }
- ];
-        const projectList = document.getElementById('projectList');
+    <!-- Note that you could just host this in a file named script.js and include it. -->
+    <script> 
+        const projects = [ 
+            // Title, summary, description, imageSrc, codeSrc
+        ];
 
         function createProjectCard(project) {
             const card = document.createElement('div');
@@ -67,15 +47,15 @@
                 <div class="mdc-card">
                     <div class="mdc-card__primary-action" tabindex="0">
                         <div class="mdc-card__media mdc-card__media--16-9">
-                            <img src=${project.imageSrc}>
+                            <img src="">
                         </div>
                         <div class="mdc-card__ripple"></div>
                         <div class="mdc-card__primary">
-                            <h2 class="mdc-typography mdc-typography--headline6">${project.title}</h2>
-                            <h3 class="mdc-typography mdc-typography--subtitle2">${project.summary}</h3>
+                            <h2 class="mdc-typography mdc-typography--headline6">TODO</h2>
+                            <h3 class="mdc-typography mdc-typography--subtitle2">TODO</h3>
                         </div>
                         <div class="mdc-card__secondary mdc-typography mdc-typography--body2">
-                            ${project.description.substring(0, 100)}...
+                           TODO...
                         </div>
                     </div>
                     <div class="mdc-card__actions">
@@ -85,7 +65,7 @@
                         </button>
                         <button class="mdc-button mdc-card__action mdc-card__action--button right-justify">
                             <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label"><a href="${project.codeSrc}" target="_blank">View Code</a></span>
+                            <span class="mdc-button__label"><a href="" target="_blank">View Code</a></span>
                         </button>
                     </div>
                 </div>
@@ -96,30 +76,21 @@
             let expanded = false;
 
             learnMoreBtn.addEventListener('click', () => {
-                if (expanded) {
-                    cardContent.textContent = project.description.substring(0, 100) + '...';
-                    learnMoreBtn.querySelector('.mdc-button__label').textContent = 'Learn More';
-                } else {
-                    cardContent.textContent = project.description;
-                    learnMoreBtn.querySelector('.mdc-button__label').textContent = 'Show Less';
-                }
-                expanded = !expanded;
+               /* TODO */
             });
 
             return card;
         }
+        
+        const projectList = document.getElementById('projectList'); // We want to add to this
 
         function renderProjects() {
-            projectList.innerHTML = '';
-            projects.forEach((project) => {
-                const card = createProjectCard(project);
-                projectList.appendChild(card);
-            });
+            /* TODO */
         }
 
         renderProjects();
 
-        mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
+        mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button')); // Needed for our Material JS library to work.
     </script>
 
     <div class="connect">
