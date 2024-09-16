@@ -114,3 +114,11 @@
 .mdc-card__secondary {
     margin: 5px;
 }
+
+.mdc-card__actions {
+    display: flex;
+    justify-content: space-between;
+}
+.mdc-card__action--button:last-child {
+    margin-left: auto;
+}
