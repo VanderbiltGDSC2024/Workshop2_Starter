@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel= "stylesheet" type="text/css" href="style.css">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>  
+</head>
 
 <body class="main">
     <div class="grid-container">
@@ -21,24 +24,95 @@
         </div>
     </div>
 
-    <div style="padding-bottom: 15vh;">
-        <h1 class="section">My Experience</h1>
-        <div class="list">
-            <div class="listItem">
-                <h2 class="courseName">CS 1101</h2>
-                <div>Programming and Problem Solving</div>
-            </div>
-            <div class="listItem">
-                <h2 class="courseName">CS 2201</h2>
-                <div>Data Structures</div>
-            </div>
-            <div class="listItem">
-                <h2 class="courseName">CS 2212</h2>
-                <div>Discrete Structures</div>
+    
+    <div style="padding-bottom: 15vh; margin: 0 auto;">
+        <h1 class="section">My Projects</h1>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner" id="projectList">
+                <!-- Project cards will be dynamically added here -->
             </div>
         </div>
-
     </div>
+
+    <script>
+        const projects = [
+            {
+                title: "Fullstack Application",
+                summary: "Python, Angular, AWS",
+                description: "Designed and implemented a fullstack application using Python for the backend, Angular for the frontend, and AWS for deployment. Features included user authentication, real-time data processing, and responsive design.",
+                imageSrc: "./assets/angular.jpg"
+            },
+            {
+                title: "Data Structures Visualizer",
+                summary: "JavaScript, D3.js",
+                description: "Created an interactive web application to visualize various data structures such as linked lists, trees, and graphs. Implemented algorithms for insertion, deletion, and traversal with animated visualizations.",
+                imageSrc: "./assets/data.jpg"
+            },
+            {
+                title: "Machine Learning Model",
+                summary: "Python, TensorFlow, Scikit-learn",
+                description: "Developed a machine learning model for image classification using convolutional neural networks. Achieved 95% accuracy on a custom dataset and deployed the model as a web service.",
+                imageSrc: "./assets/ml.jpg"
+           }
+ ];
+        const projectList = document.getElementById('projectList');
+
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'mdc-layout-grid__cell mdc-layout-grid__cell--span-4';
+            card.innerHTML = `                <div class="mdc-card">
+                    <div class="mdc-card__primary-action" tabindex="0">
+                        <div class="mdc-card__media mdc-card__media--16-9">
+                            <img src=${project.imageSrc}>
+                        </div>
+                        <div class="mdc-card__ripple"></div>
+                        <div class="mdc-card__primary">
+                            <h2 class="mdc-typography mdc-typography--headline6">${project.title}</h2>
+                            <h3 class="mdc-typography mdc-typography--subtitle2">${project.summary}</h3>
+                        </div>
+                        <div class="mdc-card__secondary mdc-typography mdc-typography--body2">
+                            ${project.description.substring(0, 100)}...
+                        </div>
+                    </div>
+                    <div class="mdc-card__actions">
+                        <button class="mdc-button mdc-card__action mdc-card__action--button">
+                            <div class="mdc-button__ripple"></div>
+                            <span class="mdc-button__label">Learn More</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const learnMoreBtn = card.querySelector('.mdc-button');
+            const cardContent = card.querySelector('.mdc-card__secondary');
+            let expanded = false;
+
+            learnMoreBtn.addEventListener('click', () => {
+                if (expanded) {
+                    cardContent.textContent = project.description.substring(0, 100) + '...';
+                    learnMoreBtn.querySelector('.mdc-button__label').textContent = 'Learn More';
+                } else {
+                    cardContent.textContent = project.description;
+                    learnMoreBtn.querySelector('.mdc-button__label').textContent = 'Show Less';
+                }
+                expanded = !expanded;
+            });
+
+            return card;
+        }
+
+        function renderProjects() {
+            projectList.innerHTML = '';
+            projects.forEach(project => {
+                const card = createProjectCard(project);
+                projectList.appendChild(card);
+            });
+        }
+
+        renderProjects();
+
+        mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
+    </script>
 
     <div class="connect">
         <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" class="media">
@@ -50,6 +124,6 @@
         </a>
     </div>
     
-    
+    <script src="script.js" type="js"></script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+/*
+    These are universal styles used for the GDSC portfolio project.
+*/
+
 @font-face {
     font-family: 'kanit';
     src: url('assets/Kanit-Regular.ttf') format('ttf'),
@@ -82,4 +86,31 @@
 
 .media {
     margin: 5vh;
+}
+
+.mdc-card {
+    color: black;
+}
+
+.mdc-card__media { /* Make the image not overflow the container. */
+    height: 0;
+    padding-top: 56.25%;
+    position: relative;
+    overflow: hidden;
+}
+.mdc-card__media img { /* Same thing here. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mdc-card__primary { /* Don't shove the text against the barrier. */
+    margin: 5px;
+}
+
+.mdc-card__secondary {
+    margin: 5px;
 }
